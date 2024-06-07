@@ -1,0 +1,224 @@
+body {
+	background-color: rgb(255, 255, 255);
+	overflow-y: scroll;
+	/* Adiciona a barra de rolagem vertical sempre visível */
+  }
+
+  #menu-h ul {
+	list-style-type: none;
+	padding: 0;
+	background-color: var(--coredefundo);
+	text-align: center;
+	font-weight: bold;
+  }
+  
+  #menu-h ul li {
+	display: inline;
+	position: relative;
+	margin-bottom: 30px;
+	/* Adiciona um espaçamento entre os itens do menu */
+  }
+  
+  #menu-h ul li a {
+	color: var(--cor-primaria);
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px;
+	transition: background .3s;
+  }
+  
+  #menu-h ul li a:hover {
+	background: var(--cor-hover);
+  }
+  
+  
+  
+  #menu-h ul ul {
+	display: none;
+	position: absolute;
+	width: 150px;
+	left: 0;
+  }
+  
+  #menu-h ul li:hover ul {
+	display: block;
+  }
+  
+  #menu-h ul ul li a {
+	display: block;
+	
+  }
+  
+  header {
+	background: #333;
+	color: #fff;
+	padding: 1em 0;
+	text-align: center;
+  }
+  
+  header h1 {
+	margin: 0;
+  }
+  
+
+  h1 {
+	text-align: center;
+	  font-size: 50px;
+	  font-weight: bold;
+	  color: rgb(204, 198, 198);
+	font-family: sans-serif;
+  }
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.rodape {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.segmentos_icons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between; /* Intercale os itens nos espaços */
+	align-items: center;
+	background: linear-gradient(to bottom, #222222, #2f2e2e);
+    border: 3px double rgba(65, 105, 225, 0.8); /* Azul Royal com transparência */
+    border-color: rgba(65, 105, 225, 0.8) rgba(255, 105, 180, 0.8) rgba(65, 105, 225, 0.8) rgba(255, 105, 180, 0.8); /* Azul Royal e Rosa */
+    border-radius: 10px; /* Ajuste conforme necessário */
+    padding: 10px; /* Ajuste conforme necessário */
+	border-radius: 10px;
+	/* Adiciona cantos arredondados */
+	margin-top: 20px;
+	padding: 10px;
+	/* Adiciona espaçamento interno */
+	/* Define uma cor de fundo */
+	box-shadow: 0 0 15px rgba(123, 11, 197, 0.267);
+	/* Adiciona uma sombra */
+	text-align: center;
+	/* Alinha o texto ao centro */
+	font-size: 24px;
+	/* Define o tamanho da fonte */
+	color: #333;
+	/* Define a cor do texto */
+}
+
+.segmentos_icons img {
+    width: 150px; /* Define a largura dos ícones */
+    height: auto; /* Mantém a proporção da altura */
+    margin: 10px; /* Adiciona um espaçamento entre os ícones */
+    background-color: #ffffff;
+}
+
+.segmentos_icons a {
+	width: calc(20% - 10px); /* 20% de largura para cada ícone com espaço entre eles */
+	margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.bannerRotativo {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	width: 1200px;
+	height: 500px;
+	border: 3px solid rgb(45, 45, 45);
+	width: 100%;
+	overflow: hidden;
+}
+
+.slide {
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+.active {
+	display: block;
+}
+
+/*responsividade*/
+@media only screen and (max-width: 600px) {
+	body {
+		font-size: 14px;
+	}
+}
+
+.profile-picture {
+	border-radius: 50%;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	transition: box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+	box-shadow: 0px 10px 20px rgba(224, 15, 15, 0.4);
+}
+
+.project-image {
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.downscroll {
+	text-align: left;
+}
+
+#downscroll a[href^="https://"] {
+    color: #f59506; /* Define a cor dos links */
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline-block; /* Define os elementos <a> como blocos de linha */
+    margin-right: 7px; /* Adiciona 10 pixels de margem direita entre cada ícone */
+    position: relative; /* Define a posição relativa para que a legenda seja posicionada em relação a este elemento */
+}
+
+#downscroll a[href^="https://"]:hover::after {
+    content: attr(title); /* Define o conteúdo do pseudo-elemento como o atributo title do link */
+    background-color: rgba(0, 0, 0, 0.8); /* Define a cor de fundo da legenda */
+    color: #fff; /* Define a cor do texto da legenda */
+    padding: 5px; /* Adiciona preenchimento à legenda */
+    border-radius: 5px; /* Adiciona cantos arredondados à legenda */
+    position: absolute; /* Define a posição absoluta para que a legenda possa ser posicionada em relação ao link */
+    bottom: 100%; /* Posiciona a legenda acima do link */
+    left: 50%; /* Posiciona a legenda no centro horizontal do link */
+    transform: translateX(-50%); /* Centraliza horizontalmente a legenda em relação ao link */
+    white-space: nowrap; /* Evita que o texto da legenda seja quebrado em várias linhas */
+    opacity: 0; /* Inicialmente, torna a legenda transparente para ocultá-la */
+    transition: opacity 0.3s; /* Adiciona uma transição suave para a opacidade da legenda */
+}
+
+#downscroll a[href^="https://"]:hover::after {
+    opacity: 1; /* Torna a legenda visível quando o cursor do mouse passar por cima do link */
+}
+
+.home {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll; /* Adiciona a barra de rolagem vertical sempre visível */
+}
+
+footer.rodape2 {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+    width: 100%;
+}

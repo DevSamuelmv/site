@@ -1,0 +1,207 @@
+/*ELEMENTOS DO SITE*/
+
+
+#pai {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* Alterado para distribuir o espaço uniformemente */
+  align-items: stretch;
+  /* Ajustado para esticar os itens */
+  padding: 20px;
+}
+
+.cartao {
+  border: 3px solid #000000;
+  border: 3px solid var(--cor-primaria);
+  border-radius: 5px;
+  flex: 1 0 calc(25% - 20px);
+  /* Ajustado para ocupar o espaço disponível */
+  box-sizing: border-box;
+  margin: 8px;
+  max-width: 300px;
+  /* Definindo um tamanho máximo para os cartões */
+  min-width: 250px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.imagem {
+  width: 100%;
+  margin: auto;
+  padding: 10%;
+
+}
+
+.imagem img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+  align-self: center;
+  /* Alinha a imagem verticalmente */
+}
+
+.conteudo {
+  width: 60%;
+  /* Reduzido para 50% para manter a largura total do cartão */
+  padding: 20px;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+/*TEXTO DO SITE*/
+
+.Titulo {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.Subtitulo {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(10, 10, 10);
+}
+
+label {
+  font-family: sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#letras {
+  font-family: sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#letras a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #001aff;
+  font-weight: bold;
+}
+
+#letras :hover {
+  font-family: sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(255, 0, 0);
+}
+
+.nome {
+  color: rgb(0, 0, 0);
+}
+
+.whatsapp {
+  font-style: italic;
+  color: green;
+}
+
+.instagram {
+  font-weight: bold;
+  color: purple;
+}
+
+.site {
+  font-weight: bold;
+  color: rgb(0, 41, 128);
+}
+
+.endereco {
+  font-size: 14px;
+  color: DimGray;
+}
+
+.Segmento {
+  font-weight: bold;
+  color: red;
+}
+
+/*MENU DO SITE*/
+
+
+
+.bannerContainer {
+  display: flex;
+  justify-content: space-around;
+  /* Espaço uniforme entre os elementos */
+  margin: 20px auto;
+  /* Centraliza horizontalmente */
+  max-width: 1000px;
+  /* Define a largura máxima do container */
+}
+
+.bannerRotativo,
+.bannerRotativo1 {
+  display: flex;
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  width: 30%;
+  /* Largura de cada banner */
+  height: 30%;
+  /* Altura de cada banner */
+  border: 3px solid rgb(45, 45, 45);
+  overflow: hidden;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide,
+.slide2 {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.active,
+.active2 {
+  display: block;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 600px) {
+  .bannerContainer {
+    flex-direction: column;
+    /* Altera a direção para coluna em telas menores */
+  }
+
+  .bannerRotativo,
+  .bannerRotativo1 {
+    width: 100%;
+    /* Define a largura total em telas menores */
+  }
+}
+
+.profile-picture {
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+  box-shadow: 0px 10px 20px rgba(224, 15, 15, 0.4);
+}
+
+.project-image {
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+

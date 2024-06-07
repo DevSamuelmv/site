@@ -1,0 +1,64 @@
+/* Reset CSS básico */
+
+
+/* Estilos */
+
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  
+  
+  
+  form {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  label,
+  input,
+  textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  input,
+  textarea {
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #202020;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0f0cdd;
+  }
+  
+  #status {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 7px 17px;
+    font-size: 1.1em;
+    text-decoration: none;
+    background-color: #f50303;
+    color: white;
+    border-radius: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: rgb(122, 122, 122);
+}  
+
+
+
