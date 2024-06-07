@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos */
+
+body {
+  background-color: rgb(255, 255, 255);
+  overflow-y: scroll;
+  /* Adiciona a barra de rolagem vertical sempre visível */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(204, 198, 198);
+  font-family: sans-serif;
+}
+
+
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+:root {
+  --coredefundo: rgb(37, 37, 37);
+  --cor-hover: rgba(80, 80, 80, 0.801);
+  --cor-primaria: rgb(255, 255, 255);
+}
+
+
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#menu-h ul {
+  list-style-type: none;
+  padding: 0;
+  background-color: var(--coredefundo);
+  text-align: center;
+  font-weight: bold;
+}
+
+#menu-h ul li {
+  display: inline;
+  position: relative;
+  margin-bottom: 30px;
+  /* Adiciona um espaçamento entre os itens do menu */
+}
+
+#menu-h ul li a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  transition: background .3s;
+}
+
+#menu-h ul li a:hover {
+  background: var(--cor-hover);
+}
+
+
+
+#menu-h ul ul {
+  display: none;
+  position: absolute;
+  width: 150px;
+  left: 0;
+}
+
+#menu-h ul li:hover ul {
+  display: block;
+}
+
+#menu-h ul ul li a {
+  display: block;
+
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 100vp;
+  bottom: 0;
+  width: 100%;
+}

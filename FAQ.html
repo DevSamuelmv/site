@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre</title>
+  <link rel="image / icon" type="image.icon" href="fotos/IconePortal.png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    #pai {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      /* Alterado para distribuir o espaço uniformemente */
+      align-items: stretch;
+      /* Ajustado para esticar os itens */
+      padding: 20px;
+    }
+
+    .cartao {
+      border: 3px solid #000000;
+      border: 3px solid var(--cor-primaria);
+      border-radius: 5px;
+      flex: 1 0 calc(25% - 20px);
+      /* Ajustado para ocupar o espaço disponível */
+      box-sizing: border-box;
+      margin: 8px;
+      max-width: 300px;
+      /* Definindo um tamanho máximo para os cartões */
+      min-width: 250px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .imagem {
+      width: 100%;
+      margin: auto;
+      padding: 10%;
+
+    }
+
+    .imagem img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      object-fit: cover;
+      align-self: center;
+      /* Alinha a imagem verticalmente */
+    }
+
+    .conteudo {
+      width: 60%;
+      /* Reduzido para 50% para manter a largura total do cartão */
+      padding: 20px;
+      text-decoration: none;
+      margin-right: 30px;
+    }
+
+    /*TEXTO DO SITE*/
+
+    .Titulo {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 60px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .Subtitulo {
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(10, 10, 10);
+    }
+
+    label {
+      font-family: sans-serif;
+      color: rgb(0, 0, 0);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    #letras {
+      font-family: sans-serif;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #letras a {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #001aff;
+      font-weight: bold;
+    }
+
+    #letras :hover {
+      font-family: sans-serif;
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgb(255, 0, 0);
+    }
+
+    .nome {
+      color: rgb(0, 0, 0);
+    }
+
+    .whatsapp {
+      font-style: italic;
+      color: green;
+    }
+
+    .instagram {
+      font-weight: bold;
+      color: purple;
+    }
+
+    .site {
+      font-weight: bold;
+      color: rgb(0, 41, 128);
+    }
+
+    .endereco {
+      font-size: 14px;
+      color: DimGray;
+    }
+
+    .Segmento {
+      font-weight: bold;
+      color: red;
+    }
+
+    /*MENU DO SITE*/
+
+
+
+    .bannerContainer {
+      display: flex;
+      justify-content: space-around;
+      /* Espaço uniforme entre os elementos */
+      margin: 20px auto;
+      /* Centraliza horizontalmente */
+      max-width: 1000px;
+      /* Define a largura máxima do container */
+    }
+
+    .bannerRotativo,
+    .bannerRotativo1 {
+      display: flex;
+      justify-content: center;
+      /* Centraliza horizontalmente */
+      align-items: center;
+      /* Centraliza verticalmente */
+      width: 30%;
+      /* Largura de cada banner */
+      height: 30%;
+      /* Altura de cada banner */
+      border: 3px solid rgb(45, 45, 45);
+      overflow: hidden;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .slide,
+    .slide2 {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    .active,
+    .active2 {
+      display: block;
+    }
+
+    /* Responsividade */
+    @media only screen and (max-width: 600px) {
+      .bannerContainer {
+        flex-direction: column;
+        /* Altera a direção para coluna em telas menores */
+      }
+
+      .bannerRotativo,
+      .bannerRotativo1 {
+        width: 100%;
+        /* Define a largura total em telas menores */
+      }
+    }
+
+    .profile-picture {
+      border-radius: 50%;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .profile-picture:hover {
+      box-shadow: 0px 10px 20px rgba(224, 15, 15, 0.4);
+    }
+
+    .project-image {
+      border-radius: 5px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .project-image:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .rodape {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em 0;
+      margin-top: 100vp;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      padding: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .faq:hover {
+      background-color: #f1f1f1;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 7px 17px;
+      font-size: 1.1em;
+      text-decoration: none;
+      background-color: #0e41e9;
+      color: white;
+      border-radius: 1px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: rgb(34, 34, 116);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="fotos/logo.png">
+    <nav id="menu-h">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Sobre.html">Sobre</a></li>
+        <li><a href="QuemSomos.html">Quem Somos</a></li>
+        <li><a href="lojas.html">Lojas</a></li>
+        <li><a href="Historia.html">História</a></li>
+        <li><a href="FAQ.html">(FAQ)</a></li>
+        <li><a href="Contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 class="faq-header">Perguntas Frequentes</h1>
+
+    <div class="faq">
+      <p class="faq-question">O que é este portal?</p>
+      <div class="faq-answer">
+        <p>Nosso portal tem como objetivo divulgar o comércio local</p>
+      </div>
+    </div>
+
+    <div class="faq">
+      <p class="faq-question">Como posso me registrar?</p>
+      <div class="faq-answer">
+        <p>Entre em contado conosco no canto superior direito do site</p>
+      </div>
+    </div>
+
+    <div class="faq">
+      <p class="faq-question">Quais são os serviços oferecidos?</p>
+      <div class="faq-answer">
+        <p>Divulgação do seu comércio ou prestação serviço</p>
+      </div>
+    </div>
+
+
+  </div>
+
+  <footer class="rodape">
+    <nav id="downscroll">
+      <ul>
+        <li><a href="https://www.instagram.com/portalvilaantonieta/" target="_blank" title="Instagram"><img
+              src="icons_redes_sociais/icone-instagram-64.png" height="60px" width="60px"></a></li>
+        <li><a href="https://www.facebook.com/aricanduva/" target="_blank" title="Facebook"><img
+              src="icons_redes_sociais/icon-facebook-novo-64.png" height="60px" width="60px"></a></li>
+        <li><a href="https://twitter.com/PortalVL" target="_blank" title="Twitter"><img
+              src="icons_redes_sociais/icone-X-twitter.png" height="60px" width="60px"></a></li>
+        <li><a href="https://www.youtube.com/user/shoppingaricanduva" target="_blank" title="YouTube"><img
+              src="icons_redes_sociais/icone-reproduzir-youtube-64.png" height="60px" width="60px"></a></li>
+      </ul>
+    </nav>
+    <p>&copy; 2024 Negócios da vila. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="FAQ.js"></script>
+</body>
+
+</html>

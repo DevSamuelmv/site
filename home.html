@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Web</title>
+    <link rel="icon" type="image/png" href="fotos/IconePortal.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .bannerRotativo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        /* Estilos para o main */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+
+            font-weight: bold;
+            color: rgb(37, 37, 37);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        /* Estilos para o footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .social-icons img {
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body class="home">
+    <header>
+        <img src="fotos/logo.png">
+        <nav id="menu-h">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Sobre.html">Sobre</a></li>
+                <li><a href="QuemSomos.html">Quem Somos</a></li>
+                <li><a href="lojas.html">Lojas</a></li>
+                <li><a href="Historia.html">História</a></li>
+                <li><a href="FAQ.html">(FAQ)</a></li>
+                <li><a href="Contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="bannerRotativo">
+            <img src="Fotos/portal1.jpg" class="slide active">
+            <img src="Fotos/portal2.jpg" class="slide">
+            <img src="Fotos/portal3.jpg" class="slide">
+            <img src="Fotos/portal4.jpg" class="slide">
+        </div>
+        <h2>BEM VINDO AO PORTAL WEB NEGÓCIOS DA VILA</h2>
+    </main>
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/portalvilaantonieta/" target="_blank" title="Instagram"><img
+                    src="icons_redes_sociais/icone-instagram-64.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/aricanduva/" target="_blank" title="Facebook"><img
+                    src="icons_redes_sociais/icon-facebook-novo-64.png" alt="Facebook"></a>
+            <a href="https://twitter.com/PortalVL" target="_blank" title="Twitter"><img
+                    src="icons_redes_sociais/icone-X-twitter.png" alt="Twitter"></a>
+            <a href="https://www.youtube.com/user/shoppingaricanduva" target="_blank" title="YouTube"><img
+                    src="icons_redes_sociais/icone-reproduzir-youtube-64.png" alt="YouTube"></a>
+        </div>
+        <p>&copy; 2024 Negócios da vila. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // JavaScript para o banner rotativo
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.bannerRotativo .slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Show the first slide initially
+        showSlide(currentSlide);
+
+        // Automatically switch to the next slide every 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+
+</html>
