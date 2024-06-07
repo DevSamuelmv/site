@@ -1,0 +1,12 @@
+.banner {  
+  border: 1px solid black;
+  background-image:
+  url(Fotos/Banner.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 1200px;
+  height: 500px;
+}
