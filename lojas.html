@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portal Web</title>
+	<link rel="image / icon" type="image.icon" href="fotos/IconePortal.png">
+	<link rel="stylesheet" href="style.css">
+
+
+	<style>
+		.container {
+			width: 80%;
+			margin: auto;
+			padding: 20px;
+		}
+
+		.rodape {
+			background: #333;
+			color: #fff;
+			text-align: center;
+			padding: 1em 0;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			z-index: 1000;
+		}
+
+
+		#pai {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			/* Alterado para distribuir o espaço uniformemente */
+			align-items: stretch;
+			/* Ajustado para esticar os itens */
+			padding: 20px;
+		}
+
+
+
+		.cartao {
+			border: 3px solid #000000;
+			border: 3px solid var(--cor-primaria);
+			border-radius: 5px;
+			flex: 1 0 calc(25% - 20px);
+			/* Ajustado para ocupar o espaço disponível */
+			box-sizing: border-box;
+			margin: 8px;
+			max-width: 300px;
+			/* Definindo um tamanho máximo para os cartões */
+			min-width: 250px;
+			background-color: #ffffff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+		}
+
+		.imagem {
+			width: 100%;
+			margin: auto;
+			padding: 10%;
+
+		}
+
+		.imagem img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 5px;
+			object-fit: cover;
+			align-self: center;
+			/* Alinha a imagem verticalmente */
+		}
+
+		.conteudo {
+			width: 60%;
+			/* Reduzido para 50% para manter a largura total do cartão */
+			padding: 20px;
+			text-decoration: none;
+			margin-right: 30px;
+		}
+
+		/*TEXTO DO SITE*/
+
+		.Titulo {
+			font-family: sans-serif;
+			text-align: center;
+			font-size: 60px;
+			font-weight: bold;
+			color: #000000;
+		}
+
+		.Subtitulo {
+			font-family: sans-serif;
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+			color: rgb(10, 10, 10);
+		}
+
+		label {
+			font-family: sans-serif;
+			color: rgb(0, 0, 0);
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		#letras {
+			font-family: sans-serif;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		#letras a {
+			margin: 0 5px;
+			text-decoration: none;
+			color: #001aff;
+			font-weight: bold;
+		}
+
+		#letras :hover {
+			font-family: sans-serif;
+			text-align: center;
+			margin-bottom: 20px;
+			color: rgb(255, 0, 0);
+		}
+
+		.nome {
+			color: rgb(0, 0, 0);
+		}
+
+		.whatsapp {
+			font-style: italic;
+			color: green;
+		}
+
+		.instagram {
+			font-weight: bold;
+			color: purple;
+		}
+
+		.site {
+			font-weight: bold;
+			color: rgb(0, 41, 128);
+		}
+
+		.endereco {
+			font-size: 14px;
+			color: DimGray;
+		}
+
+		.Segmento {
+			font-weight: bold;
+			color: red;
+		}
+
+		/*MENU DO SITE*/
+
+
+
+		.bannerContainer {
+			display: flex;
+			justify-content: space-around;
+			/* Espaço uniforme entre os elementos */
+			margin: 20px auto;
+			/* Centraliza horizontalmente */
+			max-width: 1000px;
+			/* Define a largura máxima do container */
+		}
+
+		.bannerRotativo,
+		.bannerRotativo1 {
+			display: flex;
+			justify-content: center;
+			/* Centraliza horizontalmente */
+			align-items: center;
+			/* Centraliza verticalmente */
+			width: 30%;
+			/* Largura de cada banner */
+			height: 30%;
+			/* Altura de cada banner */
+			border: 3px solid rgb(45, 45, 45);
+			overflow: hidden;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.slide,
+		.slide2 {
+			display: none;
+			width: 100%;
+			height: auto;
+		}
+
+		.active,
+		.active2 {
+			display: block;
+		}
+
+		/* Responsividade */
+		@media only screen and (max-width: 600px) {
+			.bannerContainer {
+				flex-direction: column;
+				/* Altera a direção para coluna em telas menores */
+			}
+
+			.bannerRotativo,
+			.bannerRotativo1 {
+				width: 100%;
+				/* Define a largura total em telas menores */
+			}
+		}
+
+		.profile-picture {
+			border-radius: 50%;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+			transition: box-shadow 0.3s ease;
+		}
+
+		.profile-picture:hover {
+			box-shadow: 0px 10px 20px rgba(224, 15, 15, 0.4);
+		}
+
+		.project-image {
+			border-radius: 5px;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+			transition: transform 0.3s ease;
+		}
+
+		.project-image:hover {
+			transform: scale(1.1);
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<img src="fotos/logo.png">
+		<nav id="menu-h">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="Sobre.html">Sobre</a></li>
+				<li><a href="QuemSomos.html">Quem Somos</a></li>
+				<li><a href="lojas.html">Lojas</a></li>
+				<li><a href="Historia.html">História</a></li>
+				<li><a href="FAQ.html">(FAQ)</a></li>
+				<li><a href="Contato.html">Contato</a></li>
+			</ul>
+		</nav>
+	</header>
+	<br>
+	<div class="bannerContainer">
+		<div class="bannerRotativo">
+			<img src="banner/04.png" class="slide">
+			<img src="banner/02.png" class="slide">
+			<img src="banner/03.jpg" class="slide">
+		</div>
+		<div class="bannerRotativo1">
+			<img src="banner/boticario 00.jpg" class="slide">
+			<img src="banner/boticario 11.png" class="slide">
+			<img src="banner/boticario 22.jpg" class="slide">
+		</div>
+	</div>
+
+	<br>
+	<!-- Campo de busca por nome -->
+	<center>
+		<h3 class="Subtitulo">DIGITE O NOME DA LOJA</h3>
+		<input type="text" id="inputNome" onkeyup="buscarLojasPorNome(this.value)"
+			placeholder="Digite o nome da loja...">
+	</center>
+	<br>
+	<h3 class="Subtitulo">ENCONTRE A LOJA PELA LETRA INICIAL</h3>
+	<div id="letras">
+		<a href="#" onclick="buscarLojasPorLetra('A')">A</a>
+		<a href="#" onclick="buscarLojasPorLetra('B')">B</a>
+		<a href="#" onclick="buscarLojasPorLetra('C')">C</a>
+		<a href="#" onclick="buscarLojasPorLetra('D')">D</a>
+		<a href="#" onclick="buscarLojasPorLetra('E')">E</a>
+		<a href="#" onclick="buscarLojasPorLetra('F')">F</a>
+		<a href="#" onclick="buscarLojasPorLetra('G')">G</a>
+		<a href="#" onclick="buscarLojasPorLetra('H')">H</a>
+		<a href="#" onclick="buscarLojasPorLetra('I')">I</a>
+		<a href="#" onclick="buscarLojasPorLetra('J')">J</a>
+		<a href="#" onclick="buscarLojasPorLetra('K')">K</a>
+		<a href="#" onclick="buscarLojasPorLetra('L')">L</a>
+		<a href="#" onclick="buscarLojasPorLetra('M')">M</a>
+		<a href="#" onclick="buscarLojasPorLetra('N')">N</a>
+		<a href="#" onclick="buscarLojasPorLetra('O')">O</a>
+		<a href="#" onclick="buscarLojasPorLetra('P')">P</a>
+		<a href="#" onclick="buscarLojasPorLetra('Q')">Q</a>
+		<a href="#" onclick="buscarLojasPorLetra('R')">R</a>
+		<a href="#" onclick="buscarLojasPorLetra('S')">S</a>
+		<a href="#" onclick="buscarLojasPorLetra('T')">T</a>
+		<a href="#" onclick="buscarLojasPorLetra('U')">U</a>
+		<a href="#" onclick="buscarLojasPorLetra('V')">V</a>
+		<a href="#" onclick="buscarLojasPorLetra('W')">W</a>
+		<a href="#" onclick="buscarLojasPorLetra('X')">X</a>
+		<a href="#" onclick="buscarLojasPorLetra('Y')">Y</a>
+		<a href="#" onclick="buscarLojasPorLetra('Z')">Z</a>
+		<a href="#" onclick="buscarLojasPorLetra('0')">0</a>
+		<a href="#" onclick="buscarLojasPorLetra('1')">1</a>
+		<a href="#" onclick="buscarLojasPorLetra('2')">2</a>
+		<a href="#" onclick="buscarLojasPorLetra('3')">3</a>
+		<a href="#" onclick="buscarLojasPorLetra('4')">4</a>
+		<a href="#" onclick="buscarLojasPorLetra('5')">5</a>
+		<a href="#" onclick="buscarLojasPorLetra('6')">6</a>
+		<a href="#" onclick="buscarLojasPorLetra('7')">7</a>
+		<a href="#" onclick="buscarLojasPorLetra('8')">8</a>
+		<a href="#" onclick="buscarLojasPorLetra('9')">9</a>
+	</div>
+	<div id="resultado_busca">
+		<!-- Conteúdo das lojas será inserido aqui -->
+	</div>
+	<center>
+		<div class="segmentos">
+			<label for="segmento">Selecione um segmento:</label>
+	</center>
+	<center>
+		<select id="segmento" onchange="buscarLojasPorSegmento(this.value)">
+			<option value="todos">Todos</option>
+			<option value="automotivo">Automotivo</option>
+			<option value="beleza">Beleza</option>
+			<option value="brinquedos">Brinquedos</option>
+			<option value="calçados">Calçados</option>
+			<option value="construção">Construção</option>
+			<option value="decoração">Decoração</option>
+			<option value="eletrônicos">Eletrônicos</option>
+			<option value="entretenimento">Entretenimento</option>
+			<option value="esportes">Esportes</option>
+			<option value="fast-food">Fast Food</option>
+			<option value="livros">Livros</option>
+			<option value="religião">Religião</option>
+			<option value="roupas">Roupas</option>
+			<option value="saúde">Saúde</option>
+			<option value="segurança">Segurança</option>
+		</select>
+		</div>
+	</center>
+	<br>
+	<!-- Cartões de loja -->
+	<div id="pai">
+		<div class="cartao automotivo">
+			<div class="imagem">
+				<img src="img_lojas/loja_01_kogakoga.jpg" alt="Imagem da Loja 1 - Koga koga">
+
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Koga</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com/send?phone=5511947790809" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/kogakogapecas/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				<br><br>
+
+				<a class="site" href="https://kogakoga.com.br/" target="_blank">Site Oficial: www.kogakoga.com.br</a>
+				<br><br>
+				<a class="endereco" href="https://maps.app.goo.gl/5bkpkVJZdLdNrdWR7" target="_blank">Av. Sapopemba, 2430
+					- Vila Santa Clara, São Paulo - SP, 03345-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="automotivo">Segmento: Automotivo</a>
+			</div>
+		</div>
+		<div class="cartao beleza">
+			<div class="imagem">
+				<img src="img_lojas/loja_02_boticario.jpg" alt="Imagem da Loja 2">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">O Boticário</h2> <br>
+
+				<a class="whatsapp" href="https://web.whatsapp.com/send?phone=+5508007440010" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/oboticario/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+
+				<a class="site"
+					href="https://www.boticario.com.br/?ds_rl=1270144&utm_source=google&utm_medium=cpc&utm_campaign=2026769738_77242686892&gad_source=1&ds_rl=1270144&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADqfvfxtXB6ZfWhB7gFAsNnDC0W-ScrsNJsbXoV-pNS6C3p6X1WF4s8aAoHbEALw_wcB&gclsrc=aw.ds"
+					target="_blank">
+					<img src="icons_geral/icons8-globo-50.png" alt="" style="height: 20px;">
+					Site Oficial: www.boticario.com.br</a> <br> <br>
+				<a class="endereco" href="https://maps.app.goo.gl/Yy5VjDrt8hxDr4so9" target="_blank">
+					<img src="icons_geral/icons8-endereço-50.png" alt="" style="height: 20px;">
+					Av. Sapopemba, 5790 - Sapopemba, São Paulo - SP, 03374-001</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="beleza">Segmento: Beleza</a>
+			</div>
+		</div>
+		<div class="cartao brinquedos">
+			<div class="imagem">
+				<img src="img_lojas/loja_03_Ri_Happy.jpg" alt="Imagem da Loja 3">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Ri Happy</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/rihappy/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.rihappy.com.br/" target="_blank">Site Oficial: www.rihappy.com.br/</a>
+				<br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/KEn9ix9kWYGdxuHx8" target="_blank">Avenida
+					Aricanduva, 5555, ARCO ÂNCORA, 21 - Jardim Santa Teresinha, São Paulo - SP, 03527-900</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="brinquedos">Segmento: Brinquedos</a>
+			</div>
+		</div>
+		<div class="cartao calçados">
+			<div class="imagem">
+				<img src="img_lojas/loja_04_Vans.png" alt="Imagem da Loja 4">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Vans</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/vansbrasil" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.vans.com.br/?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADqsuvo2fZIR2cjc1KH_wsdoMI61E8PI6L7FHhS18IVMUUzmGtI6UU4aApO4EALw_wcB"
+					target="_blank">Site Oficial: www.vans.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/V61J4o84YQxShsGU7" target="_blank">Avenida Aricanduva,
+					5555, Arco 80 - Jardim Aricanduva, São Paulo, 03527-900</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="calçados">Segmento: Calçados</a>
+			</div>
+		</div>
+		<div class="cartao construção">
+			<div class="imagem">
+				<img src="img_lojas/loja_05_leroy_merlin.jpg" alt="Imagem da Loja 5">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Leroy Merlin</h2> <br>
+				<a class="whatsapp" href="tel:1140071380" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/leroymerlinbrasil/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.leroymerlin.com.br/?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADp3aQWZxEo1fD1EO7LMBGVHDuvaCVVCAJzvMn7Zv2HYhD-UDT9c1HwaAo8aEALw_wcB"
+					target="_blank">Site Oficial: www.leroymerlin.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/K2R9NRmUNQw1xLQcA" target="_blank">Av. Reg. Feijó,
+					1425 - Vila Reg. Feijó, São Paulo - SP, 03345-001</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="construção">Segmento: Construção</a>
+			</div>
+		</div>
+		<div class="cartao decoração">
+			<div class="imagem">
+				<img src="img_lojas/loja_06_tok&stok.jpg" alt="Imagem da Loja 6">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Tok&Stok</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/tokstok/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.tokstok.com.br/" target="_blank">Site Oficial: www.tokstok.com.br</a>
+				<br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/WG5Pg1gvAhcMeMPq9" target="_blank">R. Cap. Pacheco e
+					Chaves, 313 - Vila Prudente, São Paulo - SP, 03126-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="decoração">Segmento: Decoração</a>
+			</div>
+		</div>
+		<div class="cartao eletrônicos">
+			<div class="imagem">
+				<img src="img_lojas/loja_07_magazine_luiza.png" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Magazine Luiza</h2>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/magazineluiza" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.magazineluiza.com.br/?partner_id=974&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADo4amMjYiaX-E4aO_JyNE4h-axfD2CaT2FrhW4H5SjbkeYwbWci-ccaAgB4EALw_wcB&gclsrc=aw.ds"
+					target="_blank">Site Oficial: www.magazineluiza.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/XyHEkpYFMjzJksidA" target="_blank">Av. Aricanduva,
+					5555 - Jardim Marília, São Paulo - SP, 03527-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="eletrônicos">Segmento: Eletrônicos</a>
+			</div>
+		</div>
+		<div class="cartao fast-food">
+			<div class="imagem">
+				<img src="img_lojas/loja_011_mcdonalds.jpg" alt="Imagem da Loja 8">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">McDonald's</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/mcdonalds_br/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.mcdonalds.com.br/" target="_blank">Site Oficial:
+					www.mcdonalds.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/HCSmPCHRptmVKf7b6" target="_blank">Av. Aricanduva,
+					4840 - 58/59/61 - Vila Nova York, São Paulo - SP, 03990-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="fast-food">Segmento: Fast Food</a>
+			</div>
+		</div>
+		<div class="cartao fast-food">
+			<div class="imagem">
+				<img src="img_lojas/loja_012_burguer_king.jpg" alt="Imagem da Loja 9">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Burger King</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/burgerkingbr/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.burgerking.com.br/" target="_blank">Site Oficial:
+					www.burgerking.com.br/</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/w2KrRCoeh5GsKeR86" target="_blank">Av. Rio das Pedras,
+					1320 - Jardim Aricanduva, São Paulo - SP, 03452-100</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="fast-food">Segmento: Fast Food</a>
+			</div>
+		</div>
+		<div class="cartao entretenimento">
+			<div class="imagem">
+				<img src="img_lojas/loja_08_cinemark.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Cinemark</h2> <br>
+				<a class="whatsapp" href="https://www.instagram.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/cinemarkoficial" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.cinemark.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=s_institucional&utm_adgroup=institucional&utm_term=cinemark&utm_content=ad-03&gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADpkNYJlOwvoiTCezuuUscdcL-Jj62e50SLJsj6emH5Ujc_xA--7q3YaAnQrEALw_wcB"
+					target="_blank">Site Oficial: www.cinemark.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/GeftwjGEaxJmCM2w5" target="_blank">Av. Aricanduva,
+					5555 - Aricanduva, São Paulo - SP, 03526-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="entretenimento">Segmento: Entretenimento</a>
+			</div>
+		</div>
+		<div class="cartao esportes">
+			<div class="imagem">
+				<img src="img_lojas/loja_09_centauro.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Centauro</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/centauroesporte/?hl=pt-br" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.centauro.com.br/?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADoz80QiAKBaLJA1NzQX9tzxUbMAivjiIlwpjpkGLLwZiLURjHJMi58aAgh4EALw_wcB&utm_referrer=https://www.google.com.br/"
+					target="_blank">Site Oficial: www.centauro.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/ZSqSDbCfUmAM8sn99" target="_blank">Av. Aricanduva,
+					5555 - Vila Matilde, São Paulo - SP, 03527-900</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="esportes">Segmento: Esportes</a>
+			</div>
+		</div>
+		<div class="cartao esportes">
+			<div class="imagem">
+				<img src="img_lojas/loja_010_decathon.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Decathlon</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/decathlonbrasil" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.decathlon.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=br_t-perf_ct-pmax_n-aon-inverno_ts-bra_f-cv_o-roas_pp-gads_bm-mcn_pr-cpc_at-aff_xx-inverno&utm_term=_n-aon-inverno_spd-msp_spu-msp_pt-all_&gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADq_4q0YcjzbRw6JyHQ0ptPjdOgu3Pg82ZyieE9R9Zy0cXpj3NpZcngaAn9tEALw_wcB"
+					target="_blank">Site Oficial: www.decathlon.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/JTzBTNTayyvjGGc69" target="_blank">Av. Reg. Feijó,
+					1425 - 2º Andar - Jardim Analia Franco, São Paulo - SP, 03342-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="esportes">Segmento: Esportes</a>
+			</div>
+		</div>
+		<div class="cartao livros">
+			<div class="imagem">
+				<img src="img_lojas/loja_013_saraiva.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Livraria Saraiva</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/saraivaonline/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.saraiva.com.br/" target="_blank">Site Oficial: www.saraiva.com.br</a>
+				<br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/8vJheWcf9FWBfVwJA" target="_blank">Av. Aricanduva,
+					5555 - Store 57-58-59 - Jardim Marília, São Paulo - SP, 03527-900</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="livros">Segmento: Livros</a>
+			</div>
+		</div>
+		<div class="cartao religião">
+			<div class="imagem">
+				<img src="img_lojas/loja_014_zepequeno.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Zé Pequeno - Artigos Religiosos</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/casaseuze_artigos" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.instagram.com/casaseuze_artigos" target="_blank">Site Oficial:
+					https://www.casaseuze_artigos</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/H3sJ8jdwR3R5bh486" target="_blank">Av. do Rio Pequeno,
+					1525 - Rio Pequeno, São Paulo - SP, 05379-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="religião">Segmento: Religião</a>
+			</div>
+		</div>
+		<div class="cartao roupas">
+			<div class="imagem">
+				<img src="img_lojas/loja_015_renner.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Renner</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/lojasrenner/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.lojasrenner.com.br/?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADqJC5AOthd6X1Qt6uk1JCiehrlW2J6elulTdJCSwJ-I-7BNLnfz2ncaAnDxEALw_wcB"
+					target="_blank">Site Oficial: www.lojasrenner.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/aKBH2SAYuNe2oLea9" target="_blank">Av. Aricanduva,
+					5555 - Vila Matilde, São Paulo - SP, 03527-900</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="roupas">Segmento: Roupas</a>
+			</div>
+		</div>
+		<div class="cartao roupas">
+			<div class="imagem">
+				<img src="img_lojas/loja_016_riachuelo.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Riachuelo</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/riachuelo" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.riachuelo.com.br/?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADrXurhvfGpLRNfQH5Fa0EsJg5HgopfHGm0y3-cdKkTTcrnJRSbmdVkaAgpYEALw_wcB"
+					target="_blank">Site Oficial: www.riachuelo.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/66VSpJz6bGvTUqWF7" target="_blank">Avenida Aricanduva,
+					5555 - Jardim Aricanduva - Aricanduva, São Paulo - SP, 03527-900</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="roupas">Segmento: Roupas</a>
+			</div>
+		</div>
+		<div class="cartao saúde">
+			<div class="imagem">
+				<img src="img_lojas/loja_017_drogaria_sao_paulo.png" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">Drogaria São Paulo</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/drogariasaopaulo/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site"
+					href="https://www.drogariasaopaulo.com.br/?gad_source=1&gclid=Cj0KCQjw6uWyBhD1ARIsAIMcADqLjDgS-p0Ml_Woq7Tx6Hs5JRwcCQjxuotxTHhqwNvacgDEb7i3Y1AaAv_WEALw_wcB"
+					target="_blank">Site Oficial: www.drogariasaopaulo.com.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/TrrP3neuR6M1NRR99" target="_blank">Av. Inconfidência
+					Mineira, 941 - Vila rica, São Paulo - SP, 03911-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="saúde">Segmento: Saúde</a>
+			</div>
+		</div>
+		<div class="cartao segurança">
+			<div class="imagem">
+				<img src="img_lojas/z_01_29dp.jpg" alt="Imagem da Loja 7">
+			</div>
+			<div class="conteudo">
+				<h2 class="nome">41°DP</h2> <br>
+				<a class="whatsapp" href="https://web.whatsapp.com" target="_blank">
+					<img src="icons_redes_sociais/icons8-whatsapp-64.png" alt="" style="height: 35px;"></a>
+
+				<a class="instagram" href="https://www.instagram.com/policiamilitarsp_oficial/" target="_blank">
+					<img src="icons_redes_sociais/icone-instagram-64.png" alt="" style="height: 35px;"></a>
+				</a><br><br>
+				<a class="site" href="https://www.policiamilitar.sp.gov.br/" target="_blank">Site Oficial:
+					www.policiamilitar.sp.gov.br</a> <br>
+				<br>
+				<a class="endereco" href="https://maps.app.goo.gl/KjFdTWS5hqMXBY3P6" target="_blank">Av. Inconfidência
+					Mineira, 688 - Vila rica, São Paulo - SP, 03911-000</a> <br><br>
+				<a class="Segmento" href="#" data-segmento="segurança">Segmento: Segurança</a>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<nav id="downscroll">
+			<ul>
+				<li><a href="https://www.instagram.com/portalvilaantonieta/" target="_blank" title="Instagram"><img
+							src="icons_redes_sociais/icone-instagram-64.png" height="60px" width="60px"></a></li>
+				<li><a href="https://www.facebook.com/aricanduva/" target="_blank" title="Facebook"><img
+							src="icons_redes_sociais/icon-facebook-novo-64.png" height="60px" width="60px"></a></li>
+				<li><a href="https://twitter.com/PortalVL" target="_blank" title="Twitter"><img
+							src="icons_redes_sociais/icone-X-twitter.png" height="60px" width="60px"></a></li>
+				<li><a href="https://www.youtube.com/user/shoppingaricanduva" target="_blank" title="YouTube"><img
+							src="icons_redes_sociais/icone-reproduzir-youtube-64.png" height="60px" width="60px"></a>
+				</li>
+			</ul>
+		</nav>
+		<p>&copy; 2024 Negócios da vila. Todos os direitos reservados.</p>
+	</footer>
+	<script src="script.js"></script>
+</body>
+
+</html>
