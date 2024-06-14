@@ -33,7 +33,7 @@ h1 {
 
 
 header {
-  background: #333;
+  background: rgba(75, 75, 75, 0.884);
   color: #fff;
   padding: 1em 0;
   text-align: center;
@@ -45,7 +45,7 @@ header h1 {
 
 :root {
   --coredefundo: rgb(37, 37, 37);
-  --cor-hover: rgba(80, 80, 80, 0.801);
+  --cor-hover: rgba(109, 109, 109, 0.801);
   --cor-primaria: rgb(255, 255, 255);
 }
 
